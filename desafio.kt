@@ -2,20 +2,43 @@
 
 enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
 
-class Usuario
+class Usuario (val idade: Int, var  nomeCompleto: String)
 
-data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
+class ConteudoEducacional(val duracao: Int, var  nome: String)
+
 
 data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
 
     val inscritos = mutableListOf<Usuario>()
     
     fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+          println(usuario)       
     }
 }
 
-fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+fun main() {  
+    
+   	val usuario1 = Usuario(20, "João Oliveira 4")  
+    val usuario2 = Usuario(15, "Maria Joana")  
+    val usuario3 = Usuario(25, "Zé da esquina") 
+       
+    println("Usuários Cadastrados ")
+    println("Nome do Usuário " + usuario1.nomeCompleto + " Idade do Usuário: " + usuario1.idade)  
+    println("Nome do Usuário " + usuario2.nomeCompleto + " Idade do Usuário: " + usuario2.idade)  
+    println("Nome do Usuário " + usuario3.nomeCompleto + " Idade do Usuário: " + usuario3.idade) 
+    
+    println("-----------------------------------------------------------")   
+    println("-----------------------Teste-------------------------------")
+    println("-----------------------------------------------------------")
+
+ 	val usuario = Usuario(20, "João Oliveira 4")   
+    println("Idade do Usuário: " + usuario.idade)                      
+    println("Nome do Usuário " + usuario.nomeCompleto)
+
+    val conteudo = ConteudoEducacional(50, "Desenvolvimento de Sistemas")                      
+    println("Nome do Curso: " + conteudo.nome)
+    println("Hora de duração do curso: " + conteudo.duracao) 
+    
+ 
 }
+
